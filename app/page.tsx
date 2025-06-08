@@ -327,7 +327,7 @@ const Home: React.FC = () => {
                 Education
               </h3>
               <p className="text-gray-700">
-                Bachelor of Science in Computer Science
+                Computer Science
                 <br />
                 University of Massachusetts Lowell
               </p>
