@@ -41,7 +41,7 @@ export default function ProjectsSection() {
       className="py-20 bg-gradient-to-r from-purple-50 to-white"
     >
       <div className="container mx-auto px-6 max-w-6xl">
-        <h3 className="text-4xl font-bold mb-8 text-pink-600">Projects</h3>
+        <h3 className="text-4xl font-bold mb-8 text-purple-700">Projects</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project) => (
             <motion.div
@@ -61,7 +61,7 @@ export default function ProjectsSection() {
               </div>
 
               <div className="p-6 flex-1 flex flex-col">
-                <h4 className="text-2xl font-semibold mb-2 text-purple-800">
+                <h4 className="text-2xl font-semibold mb-2 text-gray-800">
                   {project.title}
                 </h4>
                 <a
