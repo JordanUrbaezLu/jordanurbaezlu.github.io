@@ -48,7 +48,7 @@ const Home: React.FC = () => {
   const [underlineProps, setUnderlineProps] = useState({ left: 0, width: 0 });
   const [active, setActive] = useState("hero");
   const [menuOpen, setMenuOpen] = useState(false);
-  const [showIcons, setShowIcons] = useState(false);
+  const [showIcons, setShowIcons] = useState(true);
 
   // Update underline on active change and resize
   useEffect(() => {
