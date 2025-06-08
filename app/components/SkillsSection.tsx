@@ -78,7 +78,7 @@ export default function SkillsSection({ showIcons }: Props) {
       title: "Tooling & Testing",
       items: [
         { name: "Jenkins", Icon: SiJenkins, color: "#D24939" },
-        { name: "Nx", Icon: SiNx, color: "#E23DD9" },
+        { name: "Nx", Icon: SiNx, color: "#00008B" },
         { name: "GitHub Actions", Icon: SiGithubactions, color: "#2088FF" },
         { name: "Webpack", Icon: SiWebpack, color: "#8DD6F9" },
         { name: "Jest", Icon: SiJest, color: "#C21325" },

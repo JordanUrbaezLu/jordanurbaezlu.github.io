@@ -3,17 +3,21 @@ import {
   SiNextdotjs,
   SiReact,
   SiGraphql,
-  SiSplunk,
-  SiJest,
-  SiTestcafe,
   SiRedux,
   SiJavascript,
   SiTypescript,
   SiSass,
   SiCss3,
   SiJenkins,
+  SiNodedotjs,
+  SiPrometheus,
+  SiDocker,
+  SiSpringboot,
+  SiNx,
+  SiSplunk,
+  SiGithubactions,
 } from "react-icons/si";
-import { FaServer, FaCode } from "react-icons/fa";
+import { FaServer } from "react-icons/fa";
 
 interface Props {
   showIcons: boolean;
@@ -40,9 +44,11 @@ export default function ExperienceSection({ showIcons }: Props) {
         { name: "Next.js", Icon: SiNextdotjs, color: "#000000" },
         { name: "React", Icon: SiReact, color: "#61DAFB" },
         { name: "GraphQL", Icon: SiGraphql, color: "#E10098" },
-        { name: "Splunk", Icon: SiSplunk, color: "#FF9600" },
-        { name: "Jest", Icon: SiJest, color: "#C21325" },
-        { name: "TestCafe", Icon: SiTestcafe, color: "#005EB8" },
+        { name: "Node.js", Icon: SiNodedotjs, color: "#339933" },
+        { name: "Prometheus", Icon: SiPrometheus, color: "#E6522C" },
+        { name: "Docker", Icon: SiDocker, color: "#2496ED" },
+        { name: "Spring Boot", Icon: SiSpringboot, color: "#6DB33F" },
+        { name: "Nx", Icon: SiNx, color: "#00008B" },
       ],
     },
     {
@@ -57,8 +63,8 @@ export default function ExperienceSection({ showIcons }: Props) {
       tech: [
         { name: "React", Icon: SiReact, color: "#61DAFB" },
         { name: "Redux", Icon: SiRedux, color: "#764ABC" },
-        { name: "Context API", Icon: FaCode, color: "#4A5568" },
-        { name: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
+        { name: "Splunk", Icon: SiSplunk, color: "#FF9600" },
+        { name: "GitHub Actions", Icon: SiGithubactions, color: "#2088FF" },
         { name: "TypeScript", Icon: SiTypescript, color: "#3178C6" },
       ],
     },
@@ -74,6 +80,7 @@ export default function ExperienceSection({ showIcons }: Props) {
       tech: [
         { name: "React", Icon: SiReact, color: "#61DAFB" },
         { name: "REST", Icon: FaServer, color: "#4A5568" },
+        { name: "Node.js", Icon: SiNodedotjs, color: "#339933" },
         { name: "SCSS", Icon: SiSass, color: "#CC6699" },
       ],
     },
