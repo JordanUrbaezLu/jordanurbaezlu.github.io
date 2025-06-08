@@ -1,3 +1,4 @@
+import React from "react";
 import {
   SiReact,
   SiNextdotjs,
@@ -40,6 +41,9 @@ interface Props {
 }
 
 export default function SkillsSection({ showIcons }: Props) {
+  const [iconClicked, setIconClicked] = React.useState<string>("");
+  const [hoveredIcon, setHoveredIcon] = React.useState<string>("");
+
   const categories = [
     {
       title: "Frontend",
@@ -109,43 +113,65 @@ export default function SkillsSection({ showIcons }: Props) {
           {categories.map(({ title, items }) => (
             <div key={title}>
               <h4 className="font-semibold text-gray-900 mb-2">{title}</h4>
-              <div className="flex flex-wrap gap-4">
-                {items.map(({ name, Icon, color }) => (
-                  <div
-                    key={name}
-                    tabIndex={showIcons ? 0 : -1}
-                    className="w-20 h-12 flex items-center justify-center relative group bg-gray-100 rounded-lg p-2 cursor-pointer"
-                  >
-                    {showIcons ? (
-                      <Icon
-                        size={24}
-                        color={color}
-                        className="transition-transform hover:scale-110"
-                      />
-                    ) : (
-                      <span className="text-sm text-center break-words">
-                        {name}
-                      </span>
-                    )}
+              {showIcons ? (
+                <div className="flex flex-wrap gap-4">
+                  {items.map(({ name, Icon, color }) => {
+                    const isActive =
+                      iconClicked === title + name ||
+                      hoveredIcon === title + name;
 
-                    {/** only show tooltip when icons are on */}
-                    {showIcons && (
-                      <span
-                        className="
+                    return (
+                      <div
+                        key={name}
+                        tabIndex={showIcons ? 0 : -1}
+                        onMouseEnter={() => setHoveredIcon(title + name)}
+                        onMouseLeave={() => setHoveredIcon("")}
+                        onClick={() => setIconClicked(title + name)}
+                        className="w-20 h-12 flex items-center justify-center relative bg-gray-100 rounded-lg p-2 cursor-pointer"
+                      >
+                        {showIcons ? (
+                          <Icon
+                            size={24}
+                            color={color}
+                            className="transition-transform hover:scale-110"
+                          />
+                        ) : (
+                          <span className="text-sm text-center break-words">
+                            {name}
+                          </span>
+                        )}
+
+                        {/* tooltip: always in the DOM, but fades in if hovered or clicked */}
+                        <span
+                          className={`
           absolute bottom-full mb-2 left-1/2
           transform -translate-x-1/2
           bg-black bg-opacity-75 text-white text-xs
           rounded px-2 py-1 whitespace-nowrap pointer-events-none
-          opacity-0 transition-opacity
-          group-hover:opacity-100 group-focus:opacity-100
-        "
-                      >
+          transition-opacity duration-200 ease-out
+          ${isActive ? "opacity-100" : "opacity-0"}
+        `}
+                        >
+                          {name}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="flex flex-wrap gap-4">
+                  {items.map(({ name }) => (
+                    <div
+                      key={name}
+                      className="w-20 h-12 flex items-center justify-center relative bg-gray-100 rounded-lg p-2"
+                    >
+                      <span className="text-sm text-center break-words">
                         {name}
                       </span>
-                    )}
-                  </div>
-                ))}
-              </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>
