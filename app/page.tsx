@@ -8,6 +8,7 @@ import SkillsSection from "./components/SkillsSection";
 import ExperienceSection from "./components/ExperienceSection";
 import ProjectsSection from "./components/ProjectsSection";
 import FireCrackerEffect from "./components/FireCrackerEffect";
+import Footer from "./components/Footer";
 
 const sections = [
   { id: "hero", label: "Home" },
@@ -377,6 +378,7 @@ const Home: React.FC = () => {
               </form>
             </div>
           </section>
+          <Footer />
         </main>
       </div>
     </>
