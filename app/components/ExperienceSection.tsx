@@ -26,11 +26,12 @@ export default function ExperienceSection({ showIcons }: Props) {
       company: "Walmart Global Tech",
       location: "Sunnyvale, CA",
       range: "Jul 2022 – Present",
+      current: true,
       bullets: [
-        "Lead 10+ large-scale full-stack features for Walmart+ membership and account experiences, impacting millions of users annually.",
-        "Implemented company-wide on-call analyzer tool powered by Walmart’s internal LLM to increase developer productivity by 10% each sprint.",
-        "Mentored 5+ engineers, conducted 20+ interviews, and guided cross-functional initiatives as a senior tech lead.",
-        "Improved Walmart+ Web Pages’ Core Web Vitals by 75%+ (FCP, LCP, CLS, INP), boosting performance and user engagement.",
+        "<b>Lead 10+ large-scale full-stack features</b> for Walmart+ membership and account experiences, impacting millions of users annually.",
+        "Implemented company-wide on-call analyzer tool powered by Walmart’s internal LLM to increase developer productivity by <b>10% each sprint.</b>",
+        "<b>Mentored 5+ engineers, conducted 20+ interviews</b>, and guided cross-functional initiatives as a senior tech lead.",
+        "Improved Walmart+ Web Pages’ Core Web Vitals by <b>75%+ (FCP, LCP, CLS, INP)</b>, boosting performance and user engagement.",
       ],
       tech: [
         { name: "Next.js", Icon: SiNextdotjs, color: "#000000" },
@@ -47,7 +48,7 @@ export default function ExperienceSection({ showIcons }: Props) {
       location: "Boston, MA",
       range: "Dec 2020 – Jun 2022",
       bullets: [
-        "Served as Tech Lead for Web Team across the Analytics Org.",
+        "Served as <b>Tech Lead for Web Team</b> across the Analytics Org.",
         "Led migration of legacy state logic from Redux to modern React Context API, improving maintainability.",
       ],
       tech: [
@@ -79,7 +80,7 @@ export default function ExperienceSection({ showIcons }: Props) {
       location: "Boston, MA",
       range: "Oct 2018 – Aug 2019",
       bullets: [
-        "Maintained and led production deployment cycle for the main site.",
+        "Maintained and <b>led production deployment cycle</b> for the main site.",
       ],
       tech: [
         { name: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
@@ -93,39 +94,67 @@ export default function ExperienceSection({ showIcons }: Props) {
     <section id="experience" className="py-20 bg-white">
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="flex items-center justify-between mb-8">
-          <h3 className="text-4xl font-bold text-gray-800">Experience</h3>
+          <h3 className="text-4xl font-bold text-purple-700">Experience</h3>
         </div>
 
         {experiences.map((exp) => (
           <div key={exp.role + exp.company} className="mb-12">
-            <h4 className="text-2xl font-semibold text-purple-700">{exp.role}</h4>
+            <h4
+              className={`text-2xl font-semibold text-gray-800 ${
+                exp.current
+                  ? "bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-500"
+                  : ""
+              }`}
+            >
+              {exp.role}
+            </h4>
             <p className="text-gray-600">
-              {exp.company} • {exp.location} • {exp.range}
+              <i>
+                {exp.company} • {exp.location} • {exp.range}
+              </i>
             </p>
             <ul className="list-disc list-inside mt-4 space-y-2 text-gray-700">
               {exp.bullets.map((b, i) => (
-                <li key={i}>{b}</li>
+                <li key={i} dangerouslySetInnerHTML={{ __html: b }} />
               ))}
             </ul>
             <div className="mt-2 text-sm text-gray-500">
-              Tech:{' '}
+              Tech:{" "}
               {showIcons ? (
                 <div className="flex flex-wrap gap-3 mt-1">
                   {exp.tech.map(({ name, Icon, color }) => (
                     <div
                       key={name}
-                      className="w-20 h-12 flex items-center justify-center relative group bg-gray-100 rounded-lg p-2"
+                      tabIndex={showIcons ? 0 : -1}
+                      className="w-20 h-12 flex items-center justify-center relative group bg-gray-100 rounded-lg p-2 cursor-pointer"
                     >
-                      <Icon
-                        size={24}
-                        color={color}
-                        className="transition-transform hover:scale-110"
-                      />
-                      <span
-                        className="absolute bottom-full mb-1 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-75 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap"
-                      >
-                        {name}
-                      </span>
+                      {showIcons ? (
+                        <Icon
+                          size={24}
+                          color={color}
+                          className="transition-transform hover:scale-110"
+                        />
+                      ) : (
+                        <span className="text-sm text-center break-words">
+                          {name}
+                        </span>
+                      )}
+
+                      {/** only show tooltip when icons are on */}
+                      {showIcons && (
+                        <span
+                          className="
+          absolute bottom-full mb-2 left-1/2
+          transform -translate-x-1/2
+          bg-black bg-opacity-75 text-white text-xs
+          rounded px-2 py-1 whitespace-nowrap pointer-events-none
+          opacity-0 transition-opacity
+          group-hover:opacity-100 group-focus:opacity-100
+        "
+                        >
+                          {name}
+                        </span>
+                      )}
                     </div>
                   ))}
                 </div>

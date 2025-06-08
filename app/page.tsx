@@ -233,7 +233,7 @@ const Home: React.FC = () => {
             </motion.h2>
             <TypedProfession />
             <motion.div
-              className="mt-4 flex flex-wrap justify-center space-x-4 text-gray-600"
+              className="mt-4 flex flex-wrap justify-center space-x-4 text-gray-600 pb-[200px]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}

@@ -102,7 +102,7 @@ export default function SkillsSection({ showIcons }: Props) {
     <section id="skills" className="py-20 bg-white">
       <div className="container mx-auto px-6 max-w-4xl">
         <div className="flex items-center justify-between mb-8">
-          <h3 className="text-4xl font-bold text-gray-800">Skills</h3>
+          <h3 className="text-4xl font-bold text-purple-700">Skills</h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-gray-700">
@@ -113,7 +113,8 @@ export default function SkillsSection({ showIcons }: Props) {
                 {items.map(({ name, Icon, color }) => (
                   <div
                     key={name}
-                    className="w-20 h-12 flex items-center justify-center relative group bg-gray-100 rounded-lg p-2"
+                    tabIndex={showIcons ? 0 : -1}
+                    className="w-20 h-12 flex items-center justify-center relative group bg-gray-100 rounded-lg p-2 cursor-pointer"
                   >
                     {showIcons ? (
                       <Icon
@@ -126,11 +127,22 @@ export default function SkillsSection({ showIcons }: Props) {
                         {name}
                       </span>
                     )}
-                    <span
-                      className="absolute bottom-full mb-2 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-75 text-white text-xs rounded px-2 py-1 opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap"
-                    >
-                      {name}
-                    </span>
+
+                    {/** only show tooltip when icons are on */}
+                    {showIcons && (
+                      <span
+                        className="
+          absolute bottom-full mb-2 left-1/2
+          transform -translate-x-1/2
+          bg-black bg-opacity-75 text-white text-xs
+          rounded px-2 py-1 whitespace-nowrap pointer-events-none
+          opacity-0 transition-opacity
+          group-hover:opacity-100 group-focus:opacity-100
+        "
+                      >
+                        {name}
+                      </span>
+                    )}
                   </div>
                 ))}
               </div>
