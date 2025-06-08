@@ -7,6 +7,7 @@ import Typed from "typed.js";
 import SkillsSection from "./components/SkillsSection";
 import ExperienceSection from "./components/ExperienceSection";
 import ProjectsSection from "./components/ProjectsSection";
+import FireCrackerEffect from "./components/FireCrackerEffect";
 
 const sections = [
   { id: "hero", label: "Home" },
@@ -97,6 +98,8 @@ const Home: React.FC = () => {
           content="Jordan Urbaez | Senior Full Stack Software Engineer"
         />
       </Head>
+
+      <FireCrackerEffect />
 
       <div className="scroll-smooth">
         {/* Header */}
