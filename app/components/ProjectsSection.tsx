@@ -68,7 +68,7 @@ export default function ProjectsSection() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline mb-4"
+                  className="text-blue-500 hover:underline mb-4 w-fit"
                 >
                   {project.link}
                 </a>
