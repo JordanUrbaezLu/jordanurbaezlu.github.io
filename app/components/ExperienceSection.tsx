@@ -36,8 +36,6 @@ export default function ExperienceSection({ showIcons }: Props) {
       current: true,
       bullets: [
         "<b>Lead 10+ large-scale full-stack features</b> for Walmart+ membership and account experiences, impacting millions of users annually.",
-        "Implemented company-wide on-call analyzer tool powered by Walmart’s internal LLM to increase developer productivity by <b>10% each sprint.</b>",
-        "<b>Mentored 5+ engineers, conducted 20+ interviews</b>, and guided cross-functional initiatives as a senior tech lead.",
         "Improved Walmart+ Web Pages’ Core Web Vitals by <b>75%+ (FCP, LCP, CLS, INP)</b>, boosting performance and user engagement.",
       ],
       tech: [
@@ -58,7 +56,6 @@ export default function ExperienceSection({ showIcons }: Props) {
       range: "Dec 2020 – Jun 2022",
       bullets: [
         "Served as <b>Tech Lead for Web Team</b> across the Analytics Org.",
-        "Led migration of legacy state logic from Redux to modern React Context API, improving maintainability.",
       ],
       tech: [
         { name: "React", Icon: SiReact, color: "#61DAFB" },
@@ -75,7 +72,6 @@ export default function ExperienceSection({ showIcons }: Props) {
       range: "Aug 2019 – Oct 2020",
       bullets: [
         "Developed UI for secure credential injection and remote access tooling.",
-        "Collaborated closely with backend team on RESTful APIs and secure workflows.",
       ],
       tech: [
         { name: "React", Icon: SiReact, color: "#61DAFB" },
