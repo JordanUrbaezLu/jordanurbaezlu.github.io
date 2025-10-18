@@ -45,6 +45,10 @@ const TypedProfession: React.FC = () => {
 };
 
 const Home: React.FC = () => {
+  useEffect(() => {
+    window.location.href = 'https://jordanurbaezlu.com/'
+  }, [])
+  return null;
   const navRefs = useRef<Record<string, HTMLButtonElement | null>>({});
   const [underlineProps, setUnderlineProps] = useState({ left: 0, width: 0 });
   const [active, setActive] = useState("hero");
